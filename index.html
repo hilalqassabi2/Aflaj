@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>أفلاج الداخلية الوقفية</title>
+<meta name="description" content="دليل تعليمي لأفلاج محافظة الداخلية في سلطنة عُمان: أنواع الأفلاج، وأوقاف الأفلاج، وحصص بيت المال، والأفلاج الأهلية، مع لعبة تفاعلية.">
+<meta property="og:title" content="أفلاج الداخلية الوقفية">
+<meta property="og:description" content="دليل أفلاج محافظة الداخلية وأوقافها، مع لعبة «حارس الفلج».">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_OM">
+<meta name="theme-color" content="#1f6f8b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%239a5b34'/%3E%3Cpath d='M8 40 Q20 30 32 40 T56 40' stroke='%23bfe6ef' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3Cpath d='M18 14v18M32 10v22M46 14v18' stroke='%23f4ecdd' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============ الرموز اللونية والطباعية ============ */
+:root{
+  --ink:#1d2a2c;        /* حبر */
+  --ink-soft:#4a5a5c;
+  --paper:#fffaf1;      /* ورق */
+  --sand:#f4ecdd;       /* رمل */
+  --sand-2:#e8dac0;
+  --clay:#9a5b34;       /* طين */
+  --clay-deep:#6e3d20;
+  --sarooj:#c49a62;     /* صاروج */
+  --water:#1f6f8b;      /* ماء */
+  --water-2:#3fa3b9;
+  --water-pale:#d7eef3;
+  --palm:#2f5d3a;       /* نخيل */
+  --danger:#a33a2a;
+  --radius:14px;
+  --f-head:"Amiri", "Traditional Arabic", serif;
+  --f-body:"IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--f-body);color:var(--ink);background:var(--paper);line-height:1.8;font-size:17px}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--f-head);line-height:1.35;margin:0 0 .5em}
+h2{font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--clay-deep)}
+h3{font-size:1.35rem}
+p{margin:0 0 1em}
+a{color:var(--water)}
+:focus-visible{outline:3px solid var(--water-2);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1180px,92%);margin-inline:auto}
+.eyebrow{display:inline-block;font-weight:700;color:var(--water);font-size:.95rem;margin-block-end:.4rem}
+.lead{font-size:1.12rem;color:var(--ink-soft);max-width:62ch}
+.btn{display:inline-flex;align-items:center;gap:.5rem;border:0;cursor:pointer;font:inherit;font-weight:700;padding:.7rem 1.3rem;border-radius:999px;background:var(--water);color:#fff;text-decoration:none;transition:transform .15s, background .15s}
+.btn:hover{background:#185a71;transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--water);box-shadow:inset 0 0 0 2px var(--water)}
+.btn.clay{background:var(--clay)}
+.btn.clay:hover{background:var(--clay-deep)}
+.btn.small{padding:.4rem .9rem;font-size:.9rem}
+.btn.danger{background:var(--danger)}
+.badge{display:inline-block;font-size:.8rem;font-weight:700;padding:.1rem .6rem;border-radius:999px;background:var(--sand-2);color:var(--clay-deep)}
+.badge.water{background:var(--water-pale);color:#134a5c}
+.badge.palm{background:#dce9dc;color:var(--palm)}
+.badge.warn{background:#fbe7c6;color:#7a4a00}
+[hidden]{display:none!important}
+
+/* ============ الشريط العلوي ============ */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,250,241,.94);backdrop-filter:blur(8px);border-block-end:1px solid var(--sand-2)}
+.topbar .wrap{display:flex;align-items:center;gap:1rem;min-height:68px}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink);margin-inline-end:auto}
+.brand-logo{width:46px;height:46px;border-radius:10px;object-fit:contain;background:#fff}
+.brand-mark{width:46px;height:46px;border-radius:10px;background:var(--clay);display:grid;place-items:center}
+.brand-name{font-family:var(--f-head);font-size:1.3rem;font-weight:700;line-height:1.2}
+.brand-sub{display:block;font-family:var(--f-body);font-size:.78rem;color:var(--ink-soft);font-weight:400}
+.nav{display:flex;gap:.2rem;flex-wrap:wrap}
+.nav a{text-decoration:none;color:var(--ink);font-weight:500;padding:.35rem .7rem;border-radius:8px;font-size:.95rem}
+.nav a:hover{background:var(--sand)}
+.menu-btn{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--ink)}
+@media (max-width:920px){
+  .menu-btn{display:block}
+  .nav{display:none;position:absolute;inset-inline:0;top:68px;background:var(--paper);flex-direction:column;padding:1rem 4%;border-block-end:1px solid var(--sand-2)}
+  .nav.open{display:flex}
+}
+
+/* ============ الواجهة ============ */
+.hero{background:linear-gradient(180deg,var(--sand) 0%,var(--paper) 100%);padding-block:3.5rem 0;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+.hero h1{font-size:clamp(2.3rem,5.5vw,4rem);color:var(--clay-deep);margin-block-end:.3em}
+.hero h1 em{font-style:normal;color:var(--water)}
+.hero-logo{max-height:110px;width:auto;margin-block-end:1rem}
+.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-block:1.4rem}
+.counters{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+.counter{background:#fff;border-radius:var(--radius);padding:1rem 1.2rem;border-inline-start:5px solid var(--water)}
+.counter:nth-child(2){border-color:var(--clay)}
+.counter:nth-child(3){border-color:var(--palm)}
+.counter:nth-child(4){border-color:var(--sarooj)}
+.counter b{display:block;font-family:var(--f-head);font-size:2.3rem;line-height:1.1}
+.counter span{color:var(--ink-soft);font-size:.92rem}
+.unesco-note{font-size:.95rem;color:var(--ink-soft);border-inline-start:3px solid var(--sarooj);padding-inline-start:.8rem}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+
+/* العنصر التوقيعي: مقطع الفلج */
+.section-cut{margin-block-start:2.5rem}
+.section-cut svg{width:100%;height:auto;display:block}
+.flow{stroke-dasharray:18 14;animation:flow 1.6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:64}}
+.cut-label{font-family:var(--f-body);font-size:15px;font-weight:700;fill:var(--ink)}
+@media (prefers-reduced-motion:reduce){.flow{animation:none}html{scroll-behavior:auto}*{transition:none!important}}
+
+/* ============ الأقسام ============ */
+section.block{padding-block:4.5rem}
+section.alt{background:var(--sand)}
+section.dark{background:#16282c;color:#eef4f2}
+section.dark h2{color:#f3d9b0}
+section.dark .lead{color:#c5d3d1}
+.sec-head{margin-block-end:2rem}
+
+/* أنواع الأفلاج - بطاقات قلابة */
+.types{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+@media (max-width:860px){.types{grid-template-columns:1fr}}
+.flip{perspective:1200px;min-height:390px;cursor:pointer;border:0;background:none;padding:0;font:inherit;text-align:start;color:inherit}
+.flip-inner{position:relative;width:100%;height:100%;min-height:390px;transition:transform .7s;transform-style:preserve-3d}
+.flip.on .flip-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--radius);padding:1.4rem;display:flex;flex-direction:column;background:#fff;border:1px solid var(--sand-2)}
+.face.back{transform:rotateY(180deg);background:var(--water);color:#fff;border:0}
+.face.back h3{color:#fff}
+.face svg{width:100%;height:150px;margin-block-end:1rem}
+.face .hint{margin-block-start:auto;font-size:.85rem;color:var(--water);font-weight:700}
+.face.back .hint{color:#cfeef5}
+.face ul{padding-inline-start:1.1rem;margin:0}
+@media (prefers-reduced-motion:reduce){.flip-inner{transition:none}}
+
+.parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.9rem;margin-block-start:2rem}
+.part{background:var(--paper);border-radius:var(--radius);padding:1rem 1.1rem;border-block-start:4px solid var(--sarooj)}
+.part b{font-family:var(--f-head);font-size:1.25rem;color:var(--clay-deep)}
+.part p{margin:0;font-size:.95rem;color:var(--ink-soft)}
+
+/* الأوقاف */
+.waqf-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+@media (max-width:860px){.waqf-grid{grid-template-columns:1fr}}
+.uses{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin:0;padding:0;list-style:none}
+.uses li{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:.8rem 1rem}
+.uses li b{display:block;color:#f3d9b0;font-family:var(--f-head);font-size:1.15rem}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0}
+.steps li{counter-increment:s;position:relative;padding-inline-start:3.2rem;margin-block-end:1.1rem}
+.steps li::before{content:counter(s, arabic-indic);position:absolute;inset-inline-start:0;top:0;width:2.3rem;height:2.3rem;border-radius:50%;background:var(--sarooj);color:#16282c;display:grid;place-items:center;font-weight:700}
+.steps b{color:#f3d9b0}
+
+/* نوافذ الملكية */
+.tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-block-end:1rem}
+.tab{border:0;font:inherit;font-weight:700;padding:.6rem 1.2rem;border-radius:999px;cursor:pointer;background:#fff;color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--clay);color:#fff}
+.panel{background:#fff;border-radius:var(--radius);padding:1.8rem;border:1px solid var(--sand-2)}
+.panel h3{color:var(--clay-deep)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.97rem}
+th,td{padding:.75rem .9rem;border-block-end:1px solid var(--sand-2);text-align:start;vertical-align:top}
+th{background:var(--sand);font-weight:700}
+
+/* الفيديو */
+.video-box{background:#0f1d20;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9;display:grid;place-items:center;position:relative}
+.video-box video,.video-box iframe{width:100%;height:100%;border:0;display:block;background:#000}
+.video-empty{color:#c5d3d1;text-align:center;padding:2rem}
+.video-empty b{display:block;font-family:var(--f-head);font-size:1.6rem;color:#f3d9b0}
+
+/* الدليل */
+.filters{background:#fff;border-radius:var(--radius);padding:1.2rem;border:1px solid var(--sand-2);margin-block-end:1.4rem;display:grid;gap:.9rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chips-label{font-weight:700;font-size:.9rem;color:var(--ink-soft);margin-inline-end:.3rem;align-self:center}
+.chip{border:1px solid var(--sand-2);background:var(--paper);font:inherit;font-size:.92rem;padding:.3rem .85rem;border-radius:999px;cursor:pointer;color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--water);color:#fff;border-color:var(--water)}
+.chip small{opacity:.75}
+.search{width:100%;font:inherit;padding:.7rem 1rem;border-radius:10px;border:1px solid var(--sand-2);background:var(--paper)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.1rem}
+.card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--sand-2);display:flex;flex-direction:column;cursor:pointer;text-align:start;font:inherit;color:inherit;padding:0;transition:transform .15s, box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(60,40,20,.12)}
+.card-img{aspect-ratio:16/9;background:linear-gradient(135deg,var(--water-pale),var(--sand-2));display:grid;place-items:center;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover}
+.card-body{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+.card-body h3{margin:0;font-size:1.4rem}
+.meta{color:var(--ink-soft);font-size:.9rem}
+.badges{display:flex;flex-wrap:wrap;gap:.3rem;margin-block-start:auto;padding-block-start:.5rem}
+.empty{grid-column:1/-1;text-align:center;background:#fff;border:2px dashed var(--sand-2);border-radius:var(--radius);padding:2.5rem 1rem;color:var(--ink-soft)}
+.wil-summary{display:flex;flex-wrap:wrap;gap:.5rem;margin-block-end:1rem;font-size:.92rem;color:var(--ink-soft)}
+
+/* اللعبة */
+.game{background:#fff;border-radius:22px;border:1px solid var(--sand-2);padding:clamp(1.2rem,3vw,2.4rem);min-height:440px}
+.game-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-block-end:1.2rem}
+.stage-dots{display:flex;gap:.4rem}
+.stage-dots span{width:2.1rem;height:.45rem;border-radius:9px;background:var(--sand-2)}
+.stage-dots span.on{background:var(--water)}
+.stage-dots span.done{background:var(--palm)}
+.score-pill{background:var(--sand);padding:.3rem 1rem;border-radius:999px;font-weight:700}
+.icon-btn{border:0;background:var(--sand);border-radius:999px;padding:.35rem .8rem;cursor:pointer;font:inherit}
+.q-text{font-family:var(--f-head);font-size:clamp(1.35rem,2.6vw,1.8rem);margin-block:.8rem 1.2rem}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+@media (max-width:640px){.opts{grid-template-columns:1fr}}
+.opt{font:inherit;text-align:start;padding:.9rem 1.1rem;border-radius:12px;border:2px solid var(--sand-2);background:var(--paper);cursor:pointer;color:var(--ink)}
+.opt:hover:not(:disabled){border-color:var(--water-2)}
+.opt.right{background:#dcefdc;border-color:var(--palm)}
+.opt.wrong{background:#f7dcd6;border-color:var(--danger)}
+.timer{height:8px;background:var(--sand);border-radius:9px;overflow:hidden}
+.timer i{display:block;height:100%;background:var(--water);transition:width .25s linear;margin-inline-start:0}
+.feedback{margin-block-start:1rem;font-weight:500;min-height:1.8em}
+.deed{background:var(--sand);border-radius:12px;padding:1rem 1.2rem;border-inline-start:5px solid var(--clay);margin-block-end:1rem}
+.pool{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;background:var(--water-pale);border-radius:14px;padding:1rem;margin-block-end:1rem}
+.drop-src{width:64px;height:64px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--water);cursor:grab;border:0}
+.bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem}
+.bin{border:2px dashed var(--sand-2);border-radius:14px;padding:.8rem;text-align:center;background:var(--paper);cursor:pointer;font:inherit;color:var(--ink);position:relative;overflow:hidden}
+.bin .lvl{position:absolute;inset-inline:0;bottom:0;background:rgba(63,163,185,.28);transition:height .2s}
+.bin > *{position:relative}
+.bin b{display:block;font-family:var(--f-head);font-size:1.15rem}
+.bin .n{font-size:1.7rem;font-weight:700;color:var(--water)}
+.bin.ok{border-color:var(--palm);border-style:solid}
+.bin.bad{border-color:var(--danger);border-style:solid}
+.bin.over{border-color:var(--water)}
+.minus{border:0;background:#fff;border-radius:999px;width:2rem;height:2rem;cursor:pointer;font-size:1.1rem;margin-block-start:.3rem}
+.match{display:grid;grid-template-columns:1fr 1.6fr;gap:1rem}
+@media (max-width:640px){.match{grid-template-columns:1fr}}
+.m-col{display:grid;gap:.5rem;align-content:start}
+.m-item{font:inherit;text-align:start;padding:.7rem 1rem;border-radius:10px;border:2px solid var(--sand-2);background:var(--paper);cursor:pointer;color:var(--ink)}
+.m-item.sel{border-color:var(--water);background:var(--water-pale)}
+.m-item.done{border-color:var(--palm);background:#dcefdc;cursor:default}
+.m-item.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.result{text-align:center}
+.stars{font-size:3rem;color:var(--sarooj)}
+.board{max-width:460px;margin:1.5rem auto 0;text-align:start}
+.board li{display:flex;justify-content:space-between;border-block-end:1px solid var(--sand-2);padding:.3rem 0}
+
+/* التذييل */
+footer{background:#16282c;color:#c5d3d1;padding-block:3rem 1.5rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:2rem;align-items:center}
+@media (max-width:760px){.foot-grid{grid-template-columns:1fr}}
+footer h2{color:#f3d9b0;font-size:1.6rem}
+.qr-box{background:var(--paper);border-radius:var(--radius);padding:1rem;display:flex;gap:1rem;align-items:center;color:var(--ink)}
+.qr{width:150px;height:150px;flex:none;display:grid;place-items:center}
+.qr img,.qr canvas{width:150px!important;height:150px!important}
+.url-ltr{direction:ltr;unicode-bidi:isolate;font-size:.8rem;word-break:break-all;color:var(--ink-soft)}
+.foot-bottom{margin-block-start:2rem;padding-block-start:1rem;border-block-start:1px solid #2b4247;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.9rem}
+.admin-link{background:none;border:0;color:#8fa7a4;cursor:pointer;font:inherit;text-decoration:underline}
+
+/* النوافذ المنبثقة */
+dialog{border:0;border-radius:18px;padding:0;max-width:min(760px,94vw);width:100%;color:var(--ink);background:var(--paper)}
+dialog::backdrop{background:rgba(15,25,28,.6)}
+.dlg-head{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.4rem;border-block-end:1px solid var(--sand-2);background:var(--sand)}
+.dlg-head h3{margin:0}
+.dlg-body{padding:1.4rem}
+.x{border:0;background:#fff;border-radius:50%;width:2.3rem;height:2.3rem;font-size:1.3rem;cursor:pointer}
+.detail-img{border-radius:12px;margin-block-end:1rem;max-height:340px;width:100%;object-fit:cover}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1rem;margin-block:1rem}
+.kv dt{font-weight:700;color:var(--clay-deep)}
+.kv dd{margin:0}
+#adminDlg{max-width:min(1100px,96vw);height:min(92vh,900px)}
+#adminDlg[open]{display:flex;flex-direction:column}
+.admin-tabs{display:flex;gap:.3rem;flex-wrap:wrap;padding:.8rem 1.4rem;border-block-end:1px solid var(--sand-2)}
+.admin-body{padding:1.4rem;overflow:auto;flex:1}
+.form{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem 1rem}
+.form .full{grid-column:1/-1}
+@media (max-width:640px){.form{grid-template-columns:1fr}}
+label.f{display:grid;gap:.25rem;font-weight:500;font-size:.93rem}
+.f input,.f select,.f textarea{font:inherit;padding:.55rem .8rem;border-radius:9px;border:1px solid var(--sand-2);background:#fff;color:var(--ink)}
+.f textarea{min-height:90px;resize:vertical}
+.row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.note{background:#fff7e6;border-inline-start:4px solid var(--sarooj);padding:.8rem 1rem;border-radius:8px;font-size:.93rem}
+.thumb{width:70px;height:46px;object-fit:cover;border-radius:6px}
+.toast{position:fixed;bottom:1.2rem;inset-inline-start:50%;transform:translateX(50%);background:var(--ink);color:#fff;padding:.7rem 1.3rem;border-radius:999px;z-index:999;opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.show{opacity:1}
+.to-top{position:fixed;bottom:1.2rem;inset-inline-end:1.2rem;width:3rem;height:3rem;border-radius:50%;border:0;background:var(--clay);color:#fff;font-size:1.3rem;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transition:opacity .2s}
+.to-top.show{opacity:1;pointer-events:auto}
+</style>
+</head>
+<body>
+
+<!-- ============ الشريط العلوي ============ -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span id="brandLogo" data-render></span>
+      <span><span class="brand-name" data-text="siteTitle">أفلاج الداخلية الوقفية</span><span class="brand-sub" data-text="orgName"></span></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="القائمة" aria-expanded="false">☰</button>
+    <nav class="nav" id="nav">
+      <a href="#types">أنواع الأفلاج</a>
+      <a href="#waqf">الأوقاف</a>
+      <a href="#ownership">بيت المال والأهلية</a>
+      <a href="#directory">دليل الأفلاج</a>
+      <a href="#video">الفيديو</a>
+      <a href="#game">اللعبة</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<!-- ============ الواجهة ============ -->
+<section class="hero" data-sec="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div id="heroLogo" data-render></div>
+      <span class="eyebrow">محافظة الداخلية · سلطنة عُمان</span>
+      <h1 data-text="siteTitle">أفلاج الداخلية الوقفية</h1>
+      <p class="lead" data-text="tagline"></p>
+      <p data-text="intro"></p>
+      <div class="hero-actions">
+        <a class="btn" href="#directory">تصفّح دليل الأفلاج</a>
+        <a class="btn ghost" href="#game">العب «حارس الفلج»</a>
+      </div>
+      <p class="unesco-note">أُدرجت خمسة أفلاج عُمانية في قائمة التراث العالمي لليونسكو عام ٢٠٠٦، ثلاثة منها في محافظة الداخلية: فلج دارس وفلج الخطمين بنزوى، وفلج الملكي بإزكي.</p>
+    </div>
+    <div class="counters" id="counters" data-render aria-live="polite"></div>
+  </div>
+
+  <!-- العنصر التوقيعي: مقطع عرضي لفلج داوودي -->
+  <div class="section-cut" aria-hidden="true">
+    <svg viewBox="0 0 1200 330" preserveAspectRatio="xMidYMax slice">
+      <defs>
+        <linearGradient id="earth" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#c49a62"/><stop offset="1" stop-color="#8a5a34"/>
+        </linearGradient>
+      </defs>
+      <!-- الأرض -->
+      <path d="M0 190 L260 190 C420 186 560 170 720 150 C860 132 960 100 1060 70 L1130 40 L1200 60 L1200 330 L0 330 Z" fill="url(#earth)"/>
+      <path d="M0 250 L1200 250" stroke="#7a4c2b" stroke-width="1" stroke-dasharray="4 10" opacity=".5"/>
+      <!-- الماء الجوفي عند أم الفلج -->
+      <ellipse cx="1080" cy="300" rx="120" ry="22" fill="#3fa3b9" opacity=".55"/>
+      <!-- الفرض (فتحات الصيانة) -->
+      <g stroke="#5a341b" stroke-width="7" stroke-linecap="round">
+        <line x1="1060" y1="72" x2="1060" y2="292"/>
+        <line x1="940" y1="110" x2="940" y2="276"/>
+        <line x1="820" y1="137" x2="820" y2="260"/>
+        <line x1="700" y1="153" x2="700" y2="244"/>
+        <line x1="580" y1="168" x2="580" y2="228"/>
+        <line x1="460" y1="180" x2="460" y2="212"/>
+      </g>
+      <g fill="#f4ecdd"><circle cx="1060" cy="70" r="9"/><circle cx="940" cy="108" r="9"/><circle cx="820" cy="135" r="9"/><circle cx="700" cy="151" r="9"/><circle cx="580" cy="166" r="9"/><circle cx="460" cy="178" r="9"/></g>
+      <!-- القناة الجوفية ثم الساقية المكشوفة -->
+      <path d="M1080 296 L360 196 L300 190 L0 190" stroke="#16282c" stroke-width="16" fill="none" stroke-linecap="round" opacity=".35"/>
+      <path class="flow" d="M1080 296 L360 196 L300 190 L0 190" stroke="#bfe6ef" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <!-- نخيل البلدة -->
+      <g fill="#2f5d3a">
+        <rect x="88" y="120" width="7" height="70" fill="#6e3d20"/><path d="M91 120 q-40 -10 -52 14 q30 -20 52 -14 q-30 -26 -46 -4 q30 -10 46 4 q10 -34 40 -30 q-30 10 -40 30 q30 -20 54 -2 q-30 -10 -54 2z"/>
+        <rect x="168" y="132" width="7" height="58" fill="#6e3d20"/><path d="M171 132 q-36 -8 -46 12 q26 -18 46 -12 q-26 -22 -40 -4 q26 -8 40 4 q8 -30 36 -26 q-26 8 -36 26 q26 -18 48 -2 q-26 -8 -48 2z"/>
+        <rect x="236" y="140" width="6" height="50" fill="#6e3d20"/><path d="M239 140 q-30 -8 -40 10 q22 -14 40 -10 q8 -26 30 -22 q-22 8 -30 22z"/>
+      </g>
+      <text class="cut-label" x="1100" y="26" text-anchor="middle">أم الفلج</text>
+      <text class="cut-label" x="760" y="122" text-anchor="middle">الفرض</text>
+      <text class="cut-label" x="330" y="176" text-anchor="middle">الشريعة</text>
+      <text class="cut-label" x="150" y="226" text-anchor="middle" fill="#fffaf1">البساتين والبلدة</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ أنواع الأفلاج ============ -->
+<section class="block" id="types" data-sec="types">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">اضغط البطاقة لتقلبها</span>
+      <h2>أنواع الأفلاج</h2>
+      <p class="lead">تُصنَّف الأفلاج العُمانية بحسب مصدر مياهها إلى ثلاثة أنواع، والغيلية أكثرها عددًا في سلطنة عُمان.</p>
+    </div>
+    <div class="types">
+      <button class="flip" type="button" aria-label="بطاقة الفلج الداوودي">
+        <div class="flip-inner">
+          <div class="face">
+            <svg viewBox="0 0 300 150"><rect y="40" width="300" height="110" fill="#e8dac0"/><g stroke="#6e3d20" stroke-width="5"><line x1="240" y1="40" x2="240" y2="122"/><line x1="170" y1="40" x2="170" y2="108"/><line x1="100" y1="40" x2="100" y2="94"/></g><path class="flow" d="M280 128 L60 86 L0 86" stroke="#1f6f8b" stroke-width="6" fill="none"/></svg>
+            <h3>الفلج الداوودي</h3>
+            <p>يستمد ماءه من المياه الجوفية العميقة عبر قناة محفورة تحت الأرض قد تمتد كيلومترات.</p>
+            <span class="hint">اقلب للمزيد ↻</span>
+          </div>
+          <div class="face back">
+            <h3>كيف يعمل؟</h3>
+            <ul>
+              <li>يبدأ من «أم الفلج» في عمق الأرض.</li>
+              <li>تنحدر القناة انحدارًا خفيفًا مدروسًا حتى يجري الماء بالجاذبية دون ضخ.</li>
+              <li>تتخلّلها «الفرض»، وهي فتحات للتهوية وإخراج الحفر والصيانة.</li>
+              <li>غالبًا ما يكون دائم الجريان وأقل تأثرًا بالجفاف.</li>
+            </ul>
+            <span class="hint">مثال: فلج دارس بنزوى، وفلج الملكي بإزكي</span>
+          </div>
+        </div>
+      </button>
+      <button class="flip" type="button" aria-label="بطاقة الفلج الغيلي">
+        <div class="flip-inner">
+          <div class="face">
+            <svg viewBox="0 0 300 150"><path d="M0 60 Q150 140 300 60 L300 150 L0 150Z" fill="#e8dac0"/><path class="flow" d="M300 70 Q150 130 0 70" stroke="#1f6f8b" stroke-width="6" fill="none"/><path d="M40 40 l20 -20 l20 20 M220 40 l20 -24 l24 24" stroke="#9a5b34" stroke-width="4" fill="none"/></svg>
+            <h3>الفلج الغيلي</h3>
+            <p>يعتمد على المياه السطحية أو القريبة من السطح في بطون الأودية، ويجري في قناة قصيرة نسبيًا.</p>
+            <span class="hint">اقلب للمزيد ↻</span>
+          </div>
+          <div class="face back">
+            <h3>ما يميّزه</h3>
+            <ul>
+              <li>الأكثر عددًا بين أفلاج عُمان.</li>
+              <li>يتأثر جريانه مباشرة بالأمطار، فيقوى بعد السيول ويضعف في سنوات الجفاف.</li>
+              <li>يُبنى غالبًا بسدّ صغير أو حاجز يجمع الماء في الوادي.</li>
+            </ul>
+            <span class="hint">أكثر الأنواع تأثرًا بقلة الأمطار</span>
+          </div>
+        </div>
+      </button>
+      <button class="flip" type="button" aria-label="بطاقة الفلج العيني">
+        <div class="flip-inner">
+          <div class="face">
+            <svg viewBox="0 0 300 150"><path d="M180 0 L300 0 L300 150 L120 150 Q150 90 180 0Z" fill="#c49a62"/><circle cx="168" cy="96" r="14" fill="#3fa3b9"/><path class="flow" d="M160 100 Q90 120 0 118" stroke="#1f6f8b" stroke-width="6" fill="none"/></svg>
+            <h3>الفلج العيني</h3>
+            <p>ينبع ماؤه من عين طبيعية تخرج من بين الصخور، غالبًا في المناطق الجبلية.</p>
+            <span class="hint">اقلب للمزيد ↻</span>
+          </div>
+          <div class="face back">
+            <h3>ما يميّزه</h3>
+            <ul>
+              <li>مصدره عين جارية تُوجَّه مياهها في سواقٍ إلى المزارع.</li>
+              <li>بعض العيون حارة وبعضها باردة.</li>
+              <li>ينتشر في القرى الجبلية التي تزرع المدرجات.</li>
+            </ul>
+            <span class="hint">يكثر في القرى الجبلية</span>
+          </div>
+        </div>
+      </button>
+    </div>
+
+    <h3 style="margin-block-start:2.6rem">مكوّنات الفلج ومصطلحاته</h3>
+    <div class="parts">
+      <div class="part"><b>أم الفلج</b><p>المنبع الأول للماء، وهو أعمق نقطة في الفلج الداوودي.</p></div>
+      <div class="part"><b>الفرض</b><p>فتحات رأسية على امتداد القناة الجوفية للتهوية والصيانة وإخراج الأتربة.</p></div>
+      <div class="part"><b>الساقية</b><p>القناة التي يجري فيها الماء، جوفية أو مكشوفة.</p></div>
+      <div class="part"><b>الشريعة</b><p>الموضع الذي يظهر فيه الماء على سطح الأرض أول مرة، وتُؤخذ منه مياه الشرب.</p></div>
+      <div class="part"><b>الأثر والبادة</b><p>وحدات زمنية لتقسيم الماء؛ وفي أفلاج كثيرة تكون البادة ٢٤ أثرًا، والأثر قرابة نصف ساعة، وتختلف المقادير من فلج إلى آخر.</p></div>
+      <div class="part"><b>الدوران</b><p>عدد الأيام التي تعود بعدها الحصة إلى صاحبها من جديد.</p></div>
+      <div class="part"><b>المواقيت</b><p>كان الوقت يُضبط نهارًا بظل الشمس على شاخص «اللمد»، وليلًا بمطالع النجوم.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ أوقاف الأفلاج ============ -->
+<section class="block dark" id="waqf" data-sec="waqf">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="color:#7fd0e0">محور الموقع</span>
+      <h2>أوقاف الأفلاج</h2>
+      <p class="lead" data-text="waqfIntro"></p>
+    </div>
+    <div class="waqf-grid">
+      <div>
+        <h3 style="color:#f3d9b0">على ماذا يُوقف الماء؟</h3>
+        <ul class="uses">
+          <li><b>المساجد</b>عمارتها وإنارتها ورواتب القائمين عليها.</li>
+          <li><b>تعليم القرآن</b>المدارس القرآنية ومعلّموها.</li>
+          <li><b>الفقراء والمحتاجون</b>صدقة جارية في البلدة.</li>
+          <li><b>صيانة الفلج</b>حصة يُنفق عائدها على إصلاح الفلج نفسه.</li>
+          <li><b>إفطار الصائم</b>موائد رمضان في المسجد.</li>
+          <li><b>الطرق والمرافق</b>ما ينفع أهل البلدة عامة.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:#f3d9b0">كيف يُدار وقف الماء؟</h3>
+        <ol class="steps">
+          <li><b>الحبس:</b> يوقف المالك حصة من ماء الفلج (آثارًا معلومة) فيبقى أصلها محبوسًا لا يُباع ولا يُورث.</li>
+          <li><b>المزاد:</b> تُعرض منفعة الحصة على المزارعين في مزاد دوري، فيأخذها من يدفع أكثر لمدة محددة.</li>
+          <li><b>التحصيل:</b> يجمع وكيل الفلج أو وكيل الوقف العائد ويقيّده في سجلاته.</li>
+          <li><b>الصرف:</b> يُنفق العائد في المصرف الذي حدده الواقف، لا يتجاوزه.</li>
+          <li><b>الإشراف:</b> تتابع الجهة المختصة بالأوقاف حفظ هذه الحصص وتوثيقها.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ بيت المال والأفلاج الأهلية ============ -->
+<section class="block alt" id="ownership" data-sec="ownership">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>ملكية ماء الفلج</h2>
+      <p class="lead">قلّما يكون الفلج كله لجهة واحدة؛ فالفلج الواحد قد يجمع حصصًا أهلية، وحصصًا موقوفة، وحصصًا لبيت المال.</p>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-bait" id="t-bait">بيت المال</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-ahli" id="t-ahli">الأفلاج الأهلية</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-cmp" id="t-cmp">مقارنة</button>
+    </div>
+    <div class="panel" role="tabpanel" id="p-bait" aria-labelledby="t-bait">
+      <h3>حصص بيت المال</h3>
+      <div class="cols">
+        <div><b>ما هي؟</b><p>حصص من ماء الفلج تعود إلى المال العام، لا يملكها فرد بعينه، وتُصرف عوائدها في المصالح العامة.</p></div>
+        <div><b>كيف نشأت؟</b><p>من حصص لا يُعرف لها مالك، أو آلت إلى المال العام بطرق شرعية متعارف عليها عبر الزمن.</p></div>
+        <div><b>كيف تُدار؟</b><p>تُطرح منفعتها في المزاد كحصص الوقف، ويُقيَّد عائدها في سجلات خاصة.</p></div>
+        <div><b>الفرق عن الوقف</b><p>الوقف مقيّد بمصرف حدده الواقف، أما بيت المال فمصرفه المصلحة العامة.</p></div>
+      </div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-ahli" aria-labelledby="t-ahli" hidden>
+      <h3>الأفلاج الأهلية</h3>
+      <div class="cols">
+        <div><b>الملكية</b><p>يملك الأهالي حصص الماء ملكًا خاصًا، فتُباع وتُشترى وتُورث وتُستأجر.</p></div>
+        <div><b>التوزيع</b><p>يُقسم الماء بالأثر والبادة على دوران ثابت، فيعرف كل مالك وقته بدقة.</p></div>
+        <div><b>الإدارة</b><p>يتولاها وكيل الفلج للشؤون المالية، والعريف لتوزيع الماء ومراقبة المواعيد.</p></div>
+        <div><b>الصيانة</b><p>عمل جماعي يشترك فيه المنتفعون، تُموّله غالبًا حصص مخصصة أو مساهمات الملاك.</p></div>
+      </div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-cmp" aria-labelledby="t-cmp" hidden>
+      <h3>مقارنة سريعة</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>البند</th><th>الحصص الأهلية</th><th>حصص الوقف</th><th>حصص بيت المال</th></tr></thead>
+          <tbody>
+            <tr><td>المالك</td><td>أفراد من الأهالي</td><td>جهة الوقف (المسجد، المدرسة…)</td><td>المال العام</td></tr>
+            <tr><td>البيع والإرث</td><td>يجوز</td><td>الأصل لا يُباع ولا يُورث</td><td>لا يُتصرف فيه تصرف الأفراد</td></tr>
+            <tr><td>الاستفادة</td><td>يسقي بها المالك أو يؤجرها</td><td>تُطرح منفعتها في المزاد</td><td>تُطرح منفعتها في المزاد</td></tr>
+            <tr><td>مصرف العائد</td><td>للمالك</td><td>ما حدده الواقف</td><td>المصالح العامة</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ دليل الأفلاج ============ -->
+<section class="block" id="directory" data-sec="directory">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">ولايات محافظة الداخلية</span>
+      <h2>دليل أفلاج الداخلية</h2>
+      <p class="lead">ابحث عن فلج بالاسم، أو صفّ النتائج حسب الولاية والنوع والملكية. البطاقات المعلَّمة بـ«بيانات أولية» تحتاج استكمالًا وتوثيقًا.</p>
+    </div>
+    <div class="filters">
+      <input class="search" id="search" type="search" placeholder="ابحث باسم الفلج أو القرية…" aria-label="بحث">
+      <div class="chips" id="fWil" data-render></div>
+      <div class="chips" id="fType" data-render></div>
+      <div class="chips" id="fOwn" data-render></div>
+    </div>
+    <div class="wil-summary" id="resultCount" data-render aria-live="polite"></div>
+    <div class="grid" id="grid" data-render></div>
+  </div>
+</section>
+
+<!-- ============ الفيديو ============ -->
+<section class="block alt" id="video" data-sec="video">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-text="videoTitle">الأفلاج الوقفية</h2>
+      <p class="lead" data-text="videoDesc"></p>
+    </div>
+    <div class="video-box" id="videoBox" data-render></div>
+  </div>
+</section>
+
+<!-- ============ اللعبة ============ -->
+<section class="block" id="game" data-sec="game">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">ثلاث مراحل</span>
+      <h2>لعبة «حارس الفلج»</h2>
+      <p class="lead">اختبار سريع، ثم توزيع حصص الماء كما يفعل العريف، ثم مطابقة المصطلحات. اجمع النقاط واحصل على شارتك.</p>
+    </div>
+    <div class="game" id="gameStage" data-render></div>
+  </div>
+</section>
+</main>
+
+<!-- ============ التذييل ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h2 data-text="siteTitle">أفلاج الداخلية الوقفية</h2>
+        <p data-text="footerNote"></p>
+      </div>
+      <div class="qr-box">
+        <div class="qr" id="qr" data-render></div>
+        <div>
+          <b>امسح الرمز لزيارة الموقع</b>
+          <div class="url-ltr" id="qrUrl" data-render></div>
+          <button class="btn small" id="qrDl" type="button" style="margin-block-start:.5rem">تنزيل الرمز</button>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year" data-render></span> <span data-text="orgName"></span></span>
+      <button class="admin-link" id="adminOpen" type="button">دخول المشرف</button>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="العودة للأعلى">↑</button>
+<div class="toast" id="toast" role="status"></div>
+
+<!-- نافذة تفاصيل الفلج -->
+<dialog id="detailDlg" aria-labelledby="dTitle">
+  <div class="dlg-head"><h3 id="dTitle" data-render></h3><button class="x" data-close aria-label="إغلاق">×</button></div>
+  <div class="dlg-body" id="dBody" data-render></div>
+</dialog>
+
+<!-- نافذة دخول المشرف -->
+<dialog id="loginDlg" aria-labelledby="lTitle" style="max-width:420px">
+  <div class="dlg-head"><h3 id="lTitle">دخول المشرف</h3><button class="x" data-close aria-label="إغلاق">×</button></div>
+  <form class="dlg-body" id="loginForm">
+    <label class="f">كلمة المرور<input type="password" id="pass" autocomplete="current-password" required></label>
+    <p class="feedback" id="loginMsg" style="color:var(--danger)"></p>
+    <button class="btn" type="submit">دخول</button>
+  </form>
+</dialog>
+
+<!-- لوحة المشرف -->
+<dialog id="adminDlg" aria-labelledby="aTitle">
+  <div class="dlg-head"><h3 id="aTitle">لوحة المشرف</h3><button class="x" data-close aria-label="إغلاق">×</button></div>
+  <div class="admin-tabs" id="adminTabs">
+    <button class="tab" data-at="aflaj" aria-selected="true">الأفلاج</button>
+    <button class="tab" data-at="logo" aria-selected="false">الشعار</button>
+    <button class="tab" data-at="texts" aria-selected="false">النصوص</button>
+    <button class="tab" data-at="video" aria-selected="false">الفيديو</button>
+    <button class="tab" data-at="questions" aria-selected="false">أسئلة اللعبة</button>
+    <button class="tab" data-at="settings" aria-selected="false">الإعدادات</button>
+    <button class="tab" data-at="publish" aria-selected="false">النشر والنسخ</button>
+  </div>
+  <div class="admin-body" id="adminBody" data-render></div>
+</dialog>
+
+<!-- البيانات الأولية للموقع (يستبدلها زر «تنزيل نسخة محدّثة») -->
+<script type="application/json" id="seed">
+{
+  "savedAt": 0,
+  "settings": {"pass": "aflaj2026", "hidden": {}},
+  "logo": "",
+  "texts": {
+    "siteTitle": "أفلاج الداخلية الوقفية",
+    "tagline": "دليل تعليمي لأفلاج محافظة الداخلية، وما وُقف من مائها على المساجد وتعليم القرآن والمحتاجين.",
+    "intro": "الفلج قناة تحمل الماء من باطن الأرض أو من الأودية والعيون إلى القرى والمزارع، وقد بنى العُمانيون حول الأفلاج نظامًا دقيقًا لتقسيم الماء وإدارته، من أبرز ملامحه وقف حصص من الماء على أعمال الخير.",
+    "orgName": "",
+    "waqfIntro": "وقف الماء أن يحبس المالك حصة من ماء الفلج لجهة من جهات الخير، فيبقى أصلها ثابتًا وتُصرف منفعتها في ما حدده. وبهذا ظلّت المساجد ومدارس القرآن في قرى الداخلية تُعمَر من ماء الأفلاج قرونًا.",
+    "videoTitle": "الأفلاج الوقفية",
+    "videoDesc": "فيلم قصير عن أوقاف الأفلاج في محافظة الداخلية.",
+    "footerNote": "موقع تعليمي توثيقي لأفلاج محافظة الداخلية في سلطنة عُمان وأوقافها."
+  },
+  "video": {"file": "aflaj-waqf.mp4", "youtube": ""},
+  "aflaj": [
+    {"id":"f1","name":"فلج دارس","wilaya":"نزوى","village":"نزوى","type":"dawoodi","own":"unknown","flow":"running","length":"","desc":"من أكبر أفلاج عُمان وأشهرها، وأحد الأفلاج الخمسة المدرجة في قائمة التراث العالمي لليونسكو عام ٢٠٠٦، ويروي بساتين واسعة في نزوى.","waqf":"","img":"","lat":"","lng":"","verified":false},
+    {"id":"f2","name":"فلج الخطمين","wilaya":"نزوى","village":"بركة الموز","type":"unknown","own":"unknown","flow":"unknown","length":"","desc":"من الأفلاج المدرجة في قائمة التراث العالمي لليونسكو، وتشمل مشروعات المحافظة دراسة لتطوير شريعته ببركة الموز.","waqf":"","img":"","lat":"","lng":"","verified":false},
+    {"id":"f3","name":"فلج الملكي","wilaya":"إزكي","village":"إزكي","type":"dawoodi","own":"unknown","flow":"unknown","length":"","desc":"من الأفلاج المدرجة في قائمة التراث العالمي لليونسكو، ومن أشهر أفلاج ولاية إزكي.","waqf":"","img":"","lat":"","lng":"","verified":false},
+    {"id":"f4","name":"فلج القسوات","wilaya":"إزكي","village":"","type":"dawoodi","own":"unknown","flow":"running","length":"","desc":"فلج عميق دائم الجريان، يُعرف بنظام «غرّاق فلّاح» الذي يعبر بماء الفلج أسفل مجرى الوادي دون ضخ.","waqf":"","img":"","lat":"","lng":"","verified":false},
+    {"id":"f5","name":"فلج معول (وضاح)","wilaya":"بهلا","village":"معول","type":"unknown","own":"unknown","flow":"unknown","length":"","desc":"يقع أسفل جبل الكور في بلدة معول، ويشتهر بتدفقه غير المنتظم الذي يجذب الزوار.","waqf":"","img":"","lat":"","lng":"","verified":false}
+  ]
+}
+</script>
+
+<!-- مكتبة توليد رمز الاستجابة السريعة -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+
+<script>
+/* =========================================================
+   الثوابت والأدوات العامة
+   ========================================================= */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const KEY = "aflaj-dakhiliya-v1";
+const BOARD_KEY = "aflaj-board-v1";
+const WILAYAT = ["نزوى","بهلا","منح","الحمراء","أدم","إزكي","سمائل","بدبد","الجبل الأخضر"];
+const TYPES = {dawoodi:"داوودي", ghaili:"غيلي", aini:"عيني", unknown:"غير محدد"};
+const OWN = {ahli:"أهلي", waqf:"وقف", baitmal:"بيت المال", mixed:"مشترك", unknown:"لم تُحدد"};
+const FLOW = {running:"جارٍ", weak:"ضعيف", stopped:"متوقف", unknown:"غير محدد"};
+const AR_DIGITS = "٠١٢٣٤٥٦٧٨٩";
+const toAr = n => String(n).replace(/\d/g, d => AR_DIGITS[d]);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const uid = () => "f" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 2600); }
+
+/* بنك الأسئلة الافتراضي للعبة */
+const DEFAULT_Q = [
+  {q:"ما نوع الفلج الذي يستمد ماءه من المياه الجوفية العميقة عبر قناة تحت الأرض؟", o:["الداوودي","الغيلي","العيني","السطحي"], a:0},
+  {q:"ما نوع الفلج الذي يعتمد على المياه السطحية في بطون الأودية؟", o:["العيني","الغيلي","الداوودي","الجبلي"], a:1},
+  {q:"ما نوع الفلج الذي ينبع من عين طبيعية؟", o:["الغيلي","الداوودي","العيني","الحوضي"], a:2},
+  {q:"ماذا تسمى الفتحات الرأسية على امتداد قناة الفلج الداوودي؟", o:["الشرائع","الفرض","السواقي","الأحواض"], a:1},
+  {q:"ما اسم الموضع الذي يظهر فيه ماء الفلج على السطح أول مرة؟", o:["أم الفلج","الفرضة","الشريعة","البادة"], a:2},
+  {q:"ما اسم المنبع الأول للفلج الداوودي؟", o:["أم الفلج","الشريعة","الساقية","اللمد"], a:0},
+  {q:"ما الوحدة الزمنية التي تقارب نصف ساعة في كثير من الأفلاج؟", o:["البادة","الدوران","الأثر","الربع"], a:2},
+  {q:"في كثير من الأفلاج، كم أثرًا تساوي البادة؟", o:["١٢ أثرًا","٢٤ أثرًا","٤٨ أثرًا","٦ آثار"], a:1},
+  {q:"من يتولى توزيع الماء ومراقبة مواعيده في الميدان؟", o:["العريف","القاضي","الوالي","البنّاء"], a:0},
+  {q:"من يدير شؤون الفلج المالية والإدارية نيابة عن الملاك؟", o:["العريف","الوكيل","المؤذن","الشيخ"], a:1},
+  {q:"ماذا يعني أن حصة ماء موقوفة على مسجد؟", o:["تُباع ويُعطى ثمنها للمسجد","يبقى أصلها محبوسًا ويُصرف عائدها على المسجد","يسقي بها إمام المسجد مزرعته","تُورث لأبناء الواقف"], a:1},
+  {q:"كيف يُستفاد غالبًا من حصص الوقف في الفلج؟", o:["تُترك دون استعمال","تُطرح منفعتها في مزاد ويُصرف العائد في مصرفها","يأخذها أول من يطلبها مجانًا","تُقسم على الملاك بالتساوي"], a:1},
+  {q:"إلى من تعود حصص بيت المال في الفلج؟", o:["إلى المال العام وتُصرف في المصالح العامة","إلى وكيل الفلج","إلى أكبر الملاك","إلى المسجد فقط"], a:0},
+  {q:"من يملك حصص الماء في الأفلاج الأهلية؟", o:["الدولة","جهة الوقف","الأهالي من المساهمين","العريف"], a:2},
+  {q:"كم عدد الأفلاج العُمانية المدرجة في قائمة التراث العالمي لليونسكو؟", o:["ثلاثة","أربعة","خمسة","سبعة"], a:2},
+  {q:"في أي عام أُدرجت الأفلاج العُمانية في قائمة التراث العالمي؟", o:["٢٠٠٠","٢٠٠٦","٢٠١٢","١٩٩٨"], a:1},
+  {q:"أي هذه الأفلاج المدرجة في اليونسكو يقع في نزوى؟", o:["فلج الملكي","فلج دارس","فلج الميسر","فلج الجيلة"], a:1},
+  {q:"في أي ولاية يقع فلج الملكي؟", o:["إزكي","بهلا","سمائل","منح"], a:0},
+  {q:"أين يقع فلج الخطمين؟", o:["بركة الموز بنزوى","معول ببهلا","مركز إزكي","الحمراء"], a:0},
+  {q:"كيف كان يُحدَّد وقت الماء ليلًا قديمًا؟", o:["بالساعة الرملية فقط","بمطالع النجوم","بأصوات الطيور","بالمصابيح"], a:1},
+  {q:"كيف كان يُحدَّد وقت الماء نهارًا؟", o:["بظل الشمس على شاخص","بعدّ الدلاء","بحرارة الماء","بمرور القوافل"], a:0},
+  {q:"ما الذي يميّز صيانة الأفلاج الأهلية تقليديًا؟", o:["تتولاها شركات أجنبية","عمل جماعي يشترك فيه المنتفعون","لا تحتاج إلى صيانة","يقوم بها العريف وحده"], a:1},
+  {q:"أي أنواع الأفلاج هو الأكثر عددًا في عُمان؟", o:["الداوودي","العيني","الغيلي","متساوية"], a:2},
+  {q:"أي أنواع الأفلاج أكثر تأثرًا بقلة الأمطار؟", o:["الغيلي","الداوودي","العيني","لا يتأثر أيٌّ منها"], a:0},
+  {q:"لماذا يُوقف بعض الناس حصة على صيانة الفلج نفسه؟", o:["لزيادة ملكيتهم","لضمان تمويل إصلاحه واستمرار جريانه","لتقليل حصص الآخرين","لتغيير مجرى الفلج"], a:1},
+  {q:"هل يجوز بيع أصل حصة الوقف؟", o:["نعم دائمًا","نعم إذا وافق العريف","لا، الأصل محبوس وتُستثمر منفعته","نعم بعد عشر سنوات"], a:2},
+  {q:"ما الفرق الأساسي بين الوقف وبيت المال؟", o:["لا فرق بينهما","الوقف مقيّد بمصرف حدده الواقف، وبيت المال للمصلحة العامة","بيت المال للأفراد، والوقف للدولة","الوقف يُباع وبيت المال لا يُباع"], a:1},
+  {q:"في أي ولاية يقع فلج القسوات المعروف بنظام «غرّاق فلّاح»؟", o:["نزوى","إزكي","أدم","بدبد"], a:1},
+  {q:"ما وظيفة نظام «غرّاق فلّاح»؟", o:["رفع الماء بالمضخات","تمرير ماء الفلج أسفل مجرى الوادي دون انقطاع","تبريد الماء","قياس كمية الأمطار"], a:1},
+  {q:"في أي ولاية يقع فلج معول المعروف أيضًا بفلج وضاح؟", o:["بهلا","الحمراء","منح","سمائل"], a:0},
+  {q:"أين يوجد كرسي اليونسكو لدراسات الأفلاج؟", o:["جامعة السلطان قابوس","جامعة نزوى","جامعة صحار","جامعة ظفار"], a:1},
+  {q:"ما المقصود بالدوران في نظام الفلج؟", o:["المدة التي تعود بعدها الحصة إلى صاحبها","دوران الماء في الحوض","عدد الفرض","طول القناة"], a:0}
+];
+
+/* أزواج مرحلة المطابقة */
+const PAIRS = [
+  ["الأثر","وحدة زمنية لتقسيم الماء تقارب نصف ساعة في أفلاج كثيرة"],
+  ["البادة","مجموعة من الآثار، وكثيرًا ما تساوي ٢٤ أثرًا"],
+  ["العريف","يوزع الماء ويراقب مواعيد الحصص"],
+  ["الوكيل","يدير الشؤون المالية والإدارية للفلج"],
+  ["الشريعة","موضع ظهور الماء على السطح أول مرة"],
+  ["الفرض","فتحات رأسية للتهوية والصيانة"],
+  ["أم الفلج","المنبع الأول للفلج"],
+  ["الدوران","المدة التي تعود بعدها الحصة إلى صاحبها"],
+  ["الوقف","حبس الأصل وتسبيل المنفعة لجهة خير"],
+  ["بيت المال","حصص تعود للمال العام والمصلحة العامة"]
+];
+
+/* =========================================================
+   تحميل البيانات وحفظها
+   ========================================================= */
+const seed = JSON.parse($("#seed").textContent);
+let state = loadState();
+
+function normalize(s){
+  s.settings = Object.assign({pass:"aflaj2026", hidden:{}}, s.settings || {});
+  s.settings.hidden = s.settings.hidden || {};
+  s.texts = Object.assign({}, seed.texts, s.texts || {});
+  s.video = Object.assign({file:"aflaj-waqf.mp4", youtube:""}, s.video || {});
+  s.aflaj = Array.isArray(s.aflaj) ? s.aflaj : [];
+  if (!Array.isArray(s.questions) || !s.questions.length) s.questions = DEFAULT_Q.map(q => ({...q, o:[...q.o]}));
+  s.logo = s.logo || "";
+  return s;
+}
+function loadState(){
+  let s = seed;
+  try {
+    const l = JSON.parse(localStorage.getItem(KEY) || "null");
+    if (l && (l.savedAt || 0) > (seed.savedAt || 0)) s = l;
+  } catch(e) {}
+  return normalize(JSON.parse(JSON.stringify(s)));
+}
+function save(msg = "تم الحفظ"){
+  state.savedAt = Date.now();
+  try { localStorage.setItem(KEY, JSON.stringify(state)); toast(msg); }
+  catch(e){ toast("تعذر الحفظ: مساحة المتصفح ممتلئة، صغّر حجم الصور."); }
+  renderSite();
+}
+
+/* =========================================================
+   عرض الموقع
+   ========================================================= */
+const filt = {w:"all", t:"all", o:"all", q:""};
+
+function renderSite(){
+  // النصوص القابلة للتعديل
+  $$("[data-text]").forEach(el => { el.textContent = state.texts[el.dataset.text] || ""; });
+  document.title = state.texts.siteTitle;
+  // الشعار
+  const logo = state.logo;
+  $("#brandLogo").innerHTML = logo
+    ? `<img class="brand-logo" src="${logo}" alt="شعار ${esc(state.texts.orgName || state.texts.siteTitle)}" width="46" height="46">`
+    : `<span class="brand-mark" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 64 64"><path d="M6 42 Q19 30 32 42 T58 42" stroke="#bfe6ef" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M18 12v20M32 8v24M46 12v20" stroke="#f4ecdd" stroke-width="5" stroke-linecap="round"/></svg></span>`;
+  $("#heroLogo").innerHTML = logo ? `<img class="hero-logo" src="${logo}" alt="شعار الجهة">` : "";
+  // إظهار الأقسام وإخفاؤها
+  $$("[data-sec]").forEach(sec => { sec.hidden = !!state.settings.hidden[sec.dataset.sec]; });
+  $$(".nav a").forEach(a => { const id = a.getAttribute("href").slice(1); const sec = document.getElementById(id); a.hidden = sec ? sec.hidden : false; });
+  $("#year").textContent = toAr(new Date().getFullYear());
+  renderCounters(); renderFilters(); renderGrid(); renderVideo();
+}
+
+function renderCounters(){
+  const A = state.aflaj;
+  const wil = new Set(A.map(f => f.wilaya)).size;
+  const waqf = A.filter(f => f.own === "waqf" || f.own === "mixed" || (f.waqf || "").trim()).length;
+  const ahli = A.filter(f => f.own === "ahli").length;
+  $("#counters").innerHTML = [
+    [A.length, "فلجًا مسجلًا في الدليل"],
+    [wil + " / " + WILAYAT.length, "ولايات فيها أفلاج مسجلة"],
+    [waqf, "أفلاج بها حصص وقف موثقة"],
+    [ahli, "أفلاج أهلية"]
+  ].map(([n, t]) => `<div class="counter"><b>${toAr(n)}</b><span>${t}</span></div>`).join("");
+}
+
+function chipRow(el, label, key, options){
+  el.innerHTML = `<span class="chips-label">${label}</span>` + options.map(([v, t, c]) =>
+    `<button class="chip" type="button" data-k="${key}" data-v="${esc(v)}" aria-pressed="${filt[key] === v}">${esc(t)}${c !== undefined ? ` <small>(${toAr(c)})</small>` : ""}</button>`).join("");
+}
+function renderFilters(){
+  const A = state.aflaj;
+  const extraW = [...new Set(A.map(f => f.wilaya))].filter(w => !WILAYAT.includes(w));
+  chipRow($("#fWil"), "الولاية:", "w", [["all","الكل",A.length], ...[...WILAYAT, ...extraW].map(w => [w, w, A.filter(f => f.wilaya === w).length])]);
+  chipRow($("#fType"), "النوع:", "t", [["all","الكل"], ...Object.entries(TYPES)]);
+  chipRow($("#fOwn"), "الملكية:", "o", [["all","الكل"], ...Object.entries(OWN)]);
+}
+
+function filtered(){
+  const q = filt.q.trim();
+  return state.aflaj.filter(f =>
+    (filt.w === "all" || f.wilaya === filt.w) &&
+    (filt.t === "all" || f.type === filt.t) &&
+    (filt.o === "all" || f.own === filt.o) &&
+    (!q || (f.name + " " + f.village + " " + f.wilaya).includes(q))
+  );
+}
+
+function cardHTML(f){
+  const img = f.img
+    ? `<img src="${f.img}" alt="صورة ${esc(f.name)}" loading="lazy" width="400" height="225">`
+    : `<svg width="90" height="50" viewBox="0 0 90 50" aria-hidden="true"><path d="M2 30 Q24 16 45 30 T88 30" stroke="#1f6f8b" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M22 4v18M45 2v20M68 4v18" stroke="#9a5b34" stroke-width="4" stroke-linecap="round"/></svg>`;
+  return `<button class="card" type="button" data-id="${esc(f.id)}">
+    <div class="card-img">${img}</div>
+    <div class="card-body">
+      <h3>${esc(f.name)}</h3>
+      <span class="meta">${esc(f.wilaya)}${f.village ? " · " + esc(f.village) : ""}</span>
+      <div class="badges">
+        <span class="badge water">${TYPES[f.type] || "غير محدد"}</span>
+        <span class="badge">${OWN[f.own] || "لم تُحدد"}</span>
+        <span class="badge palm">${FLOW[f.flow] || "غير محدد"}</span>
+        ${f.verified ? "" : `<span class="badge warn">بيانات أولية</span>`}
+      </div>
+    </div></button>`;
+}
+
+function renderGrid(){
+  const list = filtered();
+  $("#resultCount").textContent = `عدد النتائج: ${toAr(list.length)}`;
+  if (!list.length){
+    const w = filt.w !== "all" ? `في ولاية ${filt.w} ` : "";
+    $("#grid").innerHTML = `<div class="empty"><b>لا توجد أفلاج مسجلة ${esc(w)}ضمن هذا التصفية بعد.</b><br>يمكن للمشرف إضافتها من لوحة المشرف.</div>`;
+    return;
+  }
+  $("#grid").innerHTML = list.map(cardHTML).join("");
+}
+
+function mapsLink(f){
+  if (f.lat && f.lng) return `https://www.google.com/maps?q=${encodeURIComponent(f.lat + "," + f.lng)}`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(f.name + " " + f.wilaya + " عمان")}`;
+}
+function openDetail(id){
+  const f = state.aflaj.find(x => x.id === id); if (!f) return;
+  $("#dTitle").textContent = f.name;
+  $("#dBody").innerHTML = `
+    ${f.img ? `<img class="detail-img" src="${f.img}" alt="صورة ${esc(f.name)}">` : ""}
+    ${f.verified ? "" : `<p class="note">بيانات أولية: بعض المعلومات بحاجة إلى استكمال وتوثيق من الجهات المختصة.</p>`}
+    <p>${esc(f.desc || "لا يوجد وصف بعد.")}</p>
+    <dl class="kv">
+      <dt>الولاية</dt><dd>${esc(f.wilaya)}</dd>
+      <dt>القرية</dt><dd>${esc(f.village || "—")}</dd>
+      <dt>النوع</dt><dd>${TYPES[f.type] || "غير محدد"}</dd>
+      <dt>الملكية الغالبة</dt><dd>${OWN[f.own] || "لم تُحدد"}</dd>
+      <dt>حصص الوقف</dt><dd>${esc(f.waqf || "لم تُوثّق بعد")}</dd>
+      <dt>حالة الجريان</dt><dd>${FLOW[f.flow] || "غير محدد"}</dd>
+      <dt>الطول التقريبي</dt><dd>${f.length ? esc(f.length) + " كم" : "—"}</dd>
+    </dl>
+    <a class="btn" href="${mapsLink(f)}" target="_blank" rel="noopener">عرض الموقع على الخريطة</a>`;
+  $("#detailDlg").showModal();
+}
+
+function renderVideo(){
+  const box = $("#videoBox"), v = state.video;
+  const yt = (v.youtube || "").match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+  if (yt){
+    box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${yt[1]}" title="${esc(state.texts.videoTitle)}" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+    return;
+  }
+  if (!v.file){ box.innerHTML = emptyVideo(); return; }
+  box.innerHTML = `<video controls preload="metadata" playsinline aria-label="${esc(state.texts.videoTitle)}"><source src="${esc(v.file)}" type="video/mp4"></video>`;
+  const vid = box.querySelector("video"), src = box.querySelector("source");
+  const fail = () => { box.innerHTML = emptyVideo(); };
+  src.addEventListener("error", fail); vid.addEventListener("error", fail);
+}
+const emptyVideo = () => `<div class="video-empty"><b>سيتوفر الفيديو قريبًا</b>ضع ملف الفيديو بجانب ملف الموقع بالاسم المحدد في لوحة المشرف.</div>`;
+
+/* رمز الاستجابة السريعة يتولد من رابط الصفحة الحالي */
+function renderQR(){
+  const url = location.href.split("#")[0];
+  const box = $("#qr"); box.innerHTML = "";
+  const isLocal = location.protocol === "file:";
+  $("#qrUrl").textContent = isLocal ? "سيظهر رابط الموقع الحقيقي بعد رفعه على جيت هب" : url;
+  if (window.QRCode){
+    new QRCode(box, {text:url, width:300, height:300, colorDark:"#1d2a2c", colorLight:"#fffaf1", correctLevel:QRCode.CorrectLevel.M});
+  } else {
+    box.innerHTML = `<img alt="رمز الاستجابة السريعة لرابط الموقع" width="150" height="150" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=8&data=${encodeURIComponent(url)}">`;
+  }
+}
+function downloadQR(){
+  const c = $("#qr canvas"), i = $("#qr img");
+  const a = document.createElement("a"); a.download = "aflaj-qr.png";
+  if (c) a.href = c.toDataURL("image/png");
+  else if (i) { a.href = i.src; a.target = "_blank"; }
+  else return;
+  a.click();
+}
+
+/* =========================================================
+   أحداث الواجهة العامة
+   ========================================================= */
+document.addEventListener("click", e => {
+  const chip = e.target.closest(".chip");
+  if (chip){ filt[chip.dataset.k] = chip.dataset.v; renderFilters(); renderGrid(); return; }
+  const card = e.target.closest(".card");
+  if (card){ openDetail(card.dataset.id); return; }
+  const flip = e.target.closest(".flip");
+  if (flip){ flip.classList.toggle("on"); return; }
+  if (e.target.closest("[data-close]")){ e.target.closest("dialog").close(); return; }
+});
+$("#search").addEventListener("input", e => { filt.q = e.target.value; renderGrid(); });
+$("#menuBtn").addEventListener("click", () => { const n = $("#nav"); n.classList.toggle("open"); $("#menuBtn").setAttribute("aria-expanded", n.classList.contains("open")); });
+$$(".nav a").forEach(a => a.addEventListener("click", () => $("#nav").classList.remove("open")));
+$("#qrDl").addEventListener("click", downloadQR);
+$("#toTop").addEventListener("click", () => scrollTo({top:0}));
+addEventListener("scroll", () => $("#toTop").classList.toggle("show", scrollY > 700), {passive:true});
+
+// نوافذ الملكية
+$$("#ownership .tab").forEach(t => t.addEventListener("click", () => {
+  $$("#ownership .tab").forEach(x => x.setAttribute("aria-selected", x === t));
+  $$("#ownership .panel").forEach(p => p.hidden = p.id !== t.getAttribute("aria-controls"));
+}));
+
+/* =========================================================
+   اللعبة: حارس الفلج
+   ========================================================= */
+const G = {stage:0, score:0, max:0, sound:true, ctx:null};
+function beep(ok){
+  if (!G.sound) return;
+  try {
+    G.ctx = G.ctx || new (window.AudioContext || window.webkitAudioContext)();
+    const o = G.ctx.createOscillator(), g = G.ctx.createGain();
+    o.frequency.value = ok ? 660 : 200; o.type = ok ? "sine" : "triangle";
+    g.gain.setValueAtTime(.12, G.ctx.currentTime); g.gain.exponentialRampToValueAtTime(.001, G.ctx.currentTime + .3);
+    o.connect(g).connect(G.ctx.destination); o.start(); o.stop(G.ctx.currentTime + .3);
+  } catch(e) {}
+}
+function gameTop(label){
+  const dots = [0,1,2].map(i => `<span class="${i < G.stage ? "done" : i === G.stage ? "on" : ""}"></span>`).join("");
+  return `<div class="game-top"><div><b>${label}</b><div class="stage-dots" aria-hidden="true">${dots}</div></div>
+    <div class="row"><span class="score-pill">النقاط: ${toAr(G.score)}</span>
+    <button class="icon-btn" type="button" id="soundBtn" aria-pressed="${G.sound}">${G.sound ? "🔊 الصوت" : "🔇 بلا صوت"}</button></div></div>`;
+}
+function bindSound(){ const b = $("#soundBtn"); if (b) b.onclick = () => { G.sound = !G.sound; b.textContent = G.sound ? "🔊 الصوت" : "🔇 بلا صوت"; b.setAttribute("aria-pressed", G.sound); }; }
+
+function gameIntro(){
+  clearInterval(G.timer);
+  const board = getBoard();
+  $("#gameStage").innerHTML = `<div class="result">
+    <svg width="120" height="80" viewBox="0 0 120 80" aria-hidden="true"><path class="flow" d="M4 50 Q32 30 60 50 T116 50" stroke="#1f6f8b" stroke-width="8" fill="none" stroke-linecap="round"/><path d="M30 6v28M60 2v32M90 6v28" stroke="#9a5b34" stroke-width="6" stroke-linecap="round"/></svg>
+    <h3 style="font-size:1.8rem">هل أنت جاهز لتكون حارس الفلج؟</h3>
+    <p>المرحلة الأولى: ١٠ أسئلة سريعة · المرحلة الثانية: وزّع الماء · المرحلة الثالثة: طابق المصطلح</p>
+    <button class="btn clay" type="button" id="startGame">ابدأ اللعب</button>
+    ${board.length ? `<div class="board"><h3>أفضل النتائج</h3><ol>${board.map(b => `<li><span>${esc(b.n)}</span><b>${toAr(b.s)}</b></li>`).join("")}</ol></div>` : ""}
+  </div>`;
+  $("#startGame").onclick = () => { G.stage = 0; G.score = 0; G.max = 0; quizStart(); };
+}
+
+/* المرحلة الأولى: الاختبار */
+function quizStart(){
+  G.qs = shuffle(state.questions).slice(0, 10).map(q => {
+    const order = shuffle(q.o.map((t, i) => i));
+    return {q:q.q, o:order.map(i => q.o[i]), a:order.indexOf(q.a)};
+  });
+  G.qi = 0; G.max += G.qs.length * 15; quizShow();
+}
+function quizShow(){
+  const q = G.qs[G.qi];
+  $("#gameStage").innerHTML = gameTop(`المرحلة الأولى: سؤال ${toAr(G.qi + 1)} من ${toAr(G.qs.length)}`) +
+    `<div class="timer" aria-hidden="true"><i id="tbar" style="width:100%"></i></div>
+     <p class="q-text">${esc(q.q)}</p>
+     <div class="opts">${q.o.map((o, i) => `<button class="opt" type="button" data-i="${i}">${esc(o)}</button>`).join("")}</div>
+     <p class="feedback" id="fb" aria-live="polite"></p>`;
+  bindSound();
+  let left = 20; clearInterval(G.timer);
+  G.timer = setInterval(() => { left -= .25; const b = $("#tbar"); if (b) b.style.width = (left / 20 * 100) + "%"; if (left <= 0){ clearInterval(G.timer); quizAnswer(-1, 0); } }, 250);
+  $$(".opt").forEach(b => b.onclick = () => { clearInterval(G.timer); quizAnswer(+b.dataset.i, left); });
+}
+function quizAnswer(i, left){
+  const q = G.qs[G.qi], btns = $$(".opt");
+  btns.forEach(b => b.disabled = true);
+  btns[q.a].classList.add("right");
+  const ok = i === q.a;
+  if (ok){ const pts = 10 + Math.round(left / 4); G.score += pts; $("#fb").textContent = `أحسنت! +${toAr(pts)} نقطة`; }
+  else { if (i >= 0) btns[i].classList.add("wrong"); $("#fb").textContent = i < 0 ? "انتهى الوقت! الإجابة الصحيحة مظللة بالأخضر." : "ليست هذه. الإجابة الصحيحة مظللة بالأخضر."; }
+  beep(ok);
+  $(".score-pill").textContent = "النقاط: " + toAr(G.score);
+  setTimeout(() => { G.qi++; if (G.qi < G.qs.length) quizShow(); else { G.stage = 1; distStart(); } }, 1500);
+}
+
+/* المرحلة الثانية: وزّع الماء */
+function distStart(){ G.round = 0; G.rounds = 3; G.max += G.rounds * 30; distRound(); }
+function distRound(){
+  const r = n => 1 + Math.floor(Math.random() * n);
+  const parts = [
+    {k:"m", t:"المسجد", need:r(3) + 1},
+    {k:"q", t:"مدرسة القرآن", need:r(2)},
+    {k:"s", t:"صيانة الفلج", need:r(2)},
+    {k:"b", t:"بيت المال", need:r(2)}
+  ];
+  const total = 24, used = parts.reduce((a, p) => a + p.need, 0);
+  parts.push({k:"f", t:"المزارعون (الحصص الأهلية)", need: total - used});
+  parts.forEach(p => p.have = 0);
+  G.parts = parts; G.pool = total;
+  distShow();
+}
+function distShow(){
+  const deed = G.parts.slice(0, 4).map(p => `${p.t}: ${toAr(p.need)} ${p.need > 2 ? "آثار" : p.need === 2 ? "أثران" : "أثر"}`).join("، ");
+  $("#gameStage").innerHTML = gameTop(`المرحلة الثانية: وزّع الماء (جولة ${toAr(G.round + 1)} من ${toAr(G.rounds)})`) +
+    `<div class="deed"><b>صك الفلج:</b> بادة واحدة فيها ${toAr(24)} أثرًا. ${deed}، والباقي للمزارعين.</div>
+     <div class="pool"><button class="drop-src" type="button" draggable="true" id="dropSrc" aria-label="قطرة ماء"></button>
+       <div><b>في الشريعة: <span id="poolN">${toAr(G.pool)}</span> أثرًا</b><br><small>اضغط على أي خانة لتصب فيها أثرًا واحدًا، أو اسحب القطرة إليها.</small></div></div>
+     <div class="bins">${G.parts.map((p, i) => `<div class="bin" role="button" tabindex="0" data-b="${i}" aria-label="${esc(p.t)}"><span class="lvl" style="height:${p.have / 24 * 100 * 2.2}%"></span><b>${esc(p.t)}</b><span class="n">${toAr(p.have)}</span><br><button class="minus" type="button" data-m="${i}" aria-label="إرجاع أثر من ${esc(p.t)}">−</button></div>`).join("")}</div>
+     <div class="row" style="margin-block-start:1rem"><button class="btn" type="button" id="checkDist">تحقّق من التوزيع</button></div>
+     <p class="feedback" id="fb" aria-live="polite"></p>`;
+  bindSound();
+  const add = i => { if (G.pool <= 0){ toast("لا يوجد ماء متبقٍ في الشريعة"); return; } G.parts[i].have++; G.pool--; refreshBins(); };
+  $$(".bin").forEach(b => {
+    b.onclick = e => { if (e.target.closest(".minus")) return; add(+b.dataset.b); };
+    b.onkeydown = e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); add(+b.dataset.b); } };
+    b.ondragover = e => { e.preventDefault(); b.classList.add("over"); };
+    b.ondragleave = () => b.classList.remove("over");
+    b.ondrop = e => { e.preventDefault(); b.classList.remove("over"); add(+b.dataset.b); };
+  });
+  $$(".minus").forEach(m => m.onclick = e => { e.stopPropagation(); const p = G.parts[+m.dataset.m]; if (p.have > 0){ p.have--; G.pool++; refreshBins(); } });
+  $("#dropSrc").ondragstart = e => e.dataTransfer.setData("text/plain", "drop");
+  $("#checkDist").onclick = distCheck;
+}
+function refreshBins(){
+  $("#poolN").textContent = toAr(G.pool);
+  $$(".bin").forEach((b, i) => { const p = G.parts[i]; b.querySelector(".n").textContent = toAr(p.have); b.querySelector(".lvl").style.height = Math.min(100, p.have / 24 * 220) + "%"; b.classList.remove("ok", "bad"); });
+}
+function distCheck(){
+  let correct = 0;
+  $$(".bin").forEach((b, i) => { const ok = G.parts[i].have === G.parts[i].need; b.classList.add(ok ? "ok" : "bad"); if (ok) correct++; });
+  const pts = correct * 5 + (correct === G.parts.length ? 5 : 0);
+  G.score += pts; beep(correct === G.parts.length);
+  $("#fb").textContent = correct === G.parts.length ? `توزيع عادل كالعريف الماهر! +${toAr(pts)} نقطة` : `${toAr(correct)} من ${toAr(G.parts.length)} خانات صحيحة. +${toAr(pts)} نقطة`;
+  $(".score-pill").textContent = "النقاط: " + toAr(G.score);
+  $("#checkDist").disabled = true;
+  setTimeout(() => { G.round++; if (G.round < G.rounds) distRound(); else { G.stage = 2; matchStart(); } }, 1800);
+}
+
+/* المرحلة الثالثة: طابق المصطلح */
+function matchStart(){
+  G.pairs = shuffle(PAIRS).slice(0, 6); G.done = 0; G.selTerm = null; G.max += G.pairs.length * 5;
+  const terms = shuffle(G.pairs.map((p, i) => ({t:p[0], i}))), defs = shuffle(G.pairs.map((p, i) => ({t:p[1], i})));
+  $("#gameStage").innerHTML = gameTop("المرحلة الثالثة: طابق المصطلح بمعناه") +
+    `<p>اختر المصطلح أولًا، ثم اختر معناه.</p>
+     <div class="match"><div class="m-col">${terms.map(x => `<button class="m-item" type="button" data-term="${x.i}"><b>${esc(x.t)}</b></button>`).join("")}</div>
+     <div class="m-col">${defs.map(x => `<button class="m-item" type="button" data-def="${x.i}">${esc(x.t)}</button>`).join("")}</div></div>
+     <p class="feedback" id="fb" aria-live="polite"></p>`;
+  bindSound();
+  $$("[data-term]").forEach(b => b.onclick = () => { if (b.classList.contains("done")) return; $$("[data-term]").forEach(x => x.classList.remove("sel")); b.classList.add("sel"); G.selTerm = b; });
+  $$("[data-def]").forEach(b => b.onclick = () => {
+    if (b.classList.contains("done")) return;
+    if (!G.selTerm){ $("#fb").textContent = "اختر المصطلح أولًا."; return; }
+    if (G.selTerm.dataset.term === b.dataset.def){
+      [G.selTerm, b].forEach(x => { x.classList.remove("sel"); x.classList.add("done"); x.disabled = true; });
+      G.score += 5; G.done++; beep(true); $("#fb").textContent = "مطابقة صحيحة! +٥";
+      G.selTerm = null;
+      if (G.done === G.pairs.length) setTimeout(gameEnd, 900);
+    } else {
+      G.score = Math.max(0, G.score - 1); beep(false); $("#fb").textContent = "ليست هذه، حاول مرة أخرى (−١)";
+      b.classList.add("shake"); setTimeout(() => b.classList.remove("shake"), 400);
+    }
+    $(".score-pill").textContent = "النقاط: " + toAr(G.score);
+  });
+}
+
+/* النتيجة ولوحة الأفضل */
+function getBoard(){ try { return JSON.parse(localStorage.getItem(BOARD_KEY) || "[]"); } catch(e){ return []; } }
+function gameEnd(){
+  G.stage = 3;
+  const pct = G.score / G.max;
+  const stars = pct >= .8 ? 3 : pct >= .55 ? 2 : 1;
+  const badge = ["", "حارس الفلج البرونزي", "حارس الفلج الفضي", "حارس الفلج الذهبي"][stars];
+  $("#gameStage").innerHTML = `<div class="result">
+    <div class="stars" aria-label="${toAr(stars)} نجوم">${"★".repeat(stars)}${"☆".repeat(3 - stars)}</div>
+    <h3 style="font-size:2rem">${badge}</h3>
+    <p>مجموع نقاطك: <b>${toAr(G.score)}</b> من ${toAr(G.max)}</p>
+    <form class="row" id="boardForm" style="justify-content:center">
+      <label class="f" style="min-width:220px">اكتب اسمك لتدخل لوحة الأفضل<input id="pName" maxlength="30" required></label>
+      <button class="btn" type="submit" style="align-self:end">حفظ النتيجة</button>
+    </form>
+    <p style="margin-block-start:1rem"><button class="btn ghost" type="button" id="again">العب مرة أخرى</button></p>
+  </div>`;
+  $("#boardForm").onsubmit = e => {
+    e.preventDefault();
+    const b = getBoard(); b.push({n:$("#pName").value.trim(), s:G.score});
+    b.sort((x, y) => y.s - x.s);
+    try { localStorage.setItem(BOARD_KEY, JSON.stringify(b.slice(0, 10))); } catch(err) {}
+    toast("حُفظت نتيجتك"); gameIntro();
+  };
+  $("#again").onclick = gameIntro;
+}
+
+/* =========================================================
+   لوحة المشرف
+   ========================================================= */
+let adminTab = "aflaj", editing = null, pendingImg = null;
+
+$("#adminOpen").addEventListener("click", () => {
+  if (sessionStorage.getItem("aflaj-admin") === "1") openAdmin();
+  else { $("#pass").value = ""; $("#loginMsg").textContent = ""; $("#loginDlg").showModal(); }
+});
+$("#loginForm").addEventListener("submit", e => {
+  e.preventDefault();
+  if ($("#pass").value === state.settings.pass){ sessionStorage.setItem("aflaj-admin", "1"); $("#loginDlg").close(); openAdmin(); }
+  else $("#loginMsg").textContent = "كلمة المرور غير صحيحة.";
+});
+function openAdmin(){ renderAdmin(); if (!$("#adminDlg").open) $("#adminDlg").showModal(); }
+$$("#adminTabs .tab").forEach(t => t.addEventListener("click", () => { adminTab = t.dataset.at; editing = null; pendingImg = null; renderAdmin(); }));
+
+/* تصغير الصور قبل حفظها حتى لا يكبر حجم الموقع */
+function readImage(file, max = 1000, type = "image/jpeg"){
+  return new Promise((res, rej) => {
+    const fr = new FileReader();
+    fr.onload = () => { const img = new Image(); img.onload = () => {
+      const k = Math.min(1, max / Math.max(img.width, img.height));
+      const c = document.createElement("canvas"); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      res(c.toDataURL(type, .78));
+    }; img.onerror = rej; img.src = fr.result; };
+    fr.onerror = rej; fr.readAsDataURL(file);
+  });
+}
+const opt = (obj, val) => Object.entries(obj).map(([k, v]) => `<option value="${k}" ${k === val ? "selected" : ""}>${v}</option>`).join("");
+
+function renderAdmin(){
+  $$("#adminTabs .tab").forEach(t => t.setAttribute("aria-selected", t.dataset.at === adminTab));
+  const body = $("#adminBody");
+  const views = {aflaj:adminAflaj, logo:adminLogo, texts:adminTexts, video:adminVideo, questions:adminQuestions, settings:adminSettings, publish:adminPublish};
+  body.innerHTML = views[adminTab]();
+  bindAdmin[adminTab] && bindAdmin[adminTab]();
+}
+
+function adminAflaj(){
+  const f = editing ? state.aflaj.find(x => x.id === editing) || {} : {};
+  const wilOpts = [...new Set([...WILAYAT, ...state.aflaj.map(x => x.wilaya)])].map(w => `<option ${w === f.wilaya ? "selected" : ""}>${esc(w)}</option>`).join("");
+  return `
+  <h3>${editing ? "تعديل فلج" : "إضافة فلج جديد"}</h3>
+  <form class="form" id="aflajForm">
+    <label class="f">اسم الفلج *<input name="name" required value="${esc(f.name)}"></label>
+    <label class="f">الولاية *<select name="wilaya">${wilOpts}</select></label>
+    <label class="f">القرية / البلدة<input name="village" value="${esc(f.village)}"></label>
+    <label class="f">النوع<select name="type">${opt(TYPES, f.type || "unknown")}</select></label>
+    <label class="f">الملكية الغالبة<select name="own">${opt(OWN, f.own || "unknown")}</select></label>
+    <label class="f">حالة الجريان<select name="flow">${opt(FLOW, f.flow || "unknown")}</select></label>
+    <label class="f">الطول التقريبي (كم)<input name="length" value="${esc(f.length)}"></label>
+    <label class="f">حصص الوقف (مثال: ٤ آثار للمسجد الجامع)<input name="waqf" value="${esc(f.waqf)}"></label>
+    <label class="f">خط العرض (اختياري)<input name="lat" dir="ltr" value="${esc(f.lat)}"></label>
+    <label class="f">خط الطول (اختياري)<input name="lng" dir="ltr" value="${esc(f.lng)}"></label>
+    <label class="f full">نبذة<textarea name="desc">${esc(f.desc)}</textarea></label>
+    <label class="f">صورة الفلج<input type="file" id="aflajImg" accept="image/*"></label>
+    <div id="imgPrev">${(pendingImg || f.img) ? `<img class="thumb" src="${pendingImg || f.img}" alt=""> <button class="btn small ghost" type="button" id="rmImg">حذف الصورة</button>` : ""}</div>
+    <label class="f full row"><input type="checkbox" name="verified" ${f.verified ? "checked" : ""}> البيانات موثّقة (يُخفي علامة «بيانات أولية»)</label>
+    <div class="full row"><button class="btn" type="submit">${editing ? "حفظ التعديل" : "إضافة الفلج"}</button>${editing ? `<button class="btn ghost" type="button" id="cancelEdit">إلغاء</button>` : ""}</div>
+  </form>
+  <h3 style="margin-block-start:2rem">الأفلاج المسجلة (${toAr(state.aflaj.length)})</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>الصورة</th><th>الاسم</th><th>الولاية</th><th>النوع</th><th>الملكية</th><th>إجراءات</th></tr></thead>
+    <tbody>${state.aflaj.map(x => `<tr><td>${x.img ? `<img class="thumb" src="${x.img}" alt="">` : "—"}</td><td>${esc(x.name)}</td><td>${esc(x.wilaya)}</td><td>${TYPES[x.type] || ""}</td><td>${OWN[x.own] || ""}</td>
+      <td class="row"><button class="btn small" type="button" data-edit="${x.id}">تعديل</button><button class="btn small danger" type="button" data-del="${x.id}">حذف</button></td></tr>`).join("")}</tbody>
+  </table></div>`;
+}
+
+function adminLogo(){
+  return `<h3>شعار الجهة</h3>
+  <p>يظهر الشعار في الشريط العلوي وفي واجهة الموقع. يُفضّل شعار بخلفية شفافة.</p>
+  <div class="row" style="margin-block:1rem">${state.logo ? `<img src="${state.logo}" alt="الشعار الحالي" style="max-height:110px;background:#fff;border-radius:10px;padding:6px">` : "<span class='note'>لا يوجد شعار حاليًا.</span>"}</div>
+  <label class="f">رفع شعار جديد<input type="file" id="logoFile" accept="image/*"></label>
+  ${state.logo ? `<p><button class="btn danger small" type="button" id="rmLogo">حذف الشعار</button></p>` : ""}`;
+}
+
+const TEXT_FIELDS = [
+  ["siteTitle","عنوان الموقع"],["orgName","اسم الجهة (يظهر تحت العنوان وفي الحقوق)"],["tagline","السطر التعريفي"],
+  ["intro","نبذة الواجهة"],["waqfIntro","مقدمة قسم الأوقاف"],["videoTitle","عنوان قسم الفيديو"],["videoDesc","وصف الفيديو"],["footerNote","نص التذييل"]
+];
+function adminTexts(){
+  return `<h3>نصوص الموقع</h3><form class="form" id="textsForm">${TEXT_FIELDS.map(([k, l]) =>
+    `<label class="f full">${l}${k.length > 9 || ["intro","tagline"].includes(k) ? `<textarea name="${k}">${esc(state.texts[k])}</textarea>` : `<input name="${k}" value="${esc(state.texts[k])}">`}</label>`).join("")}
+    <div class="full"><button class="btn" type="submit">حفظ النصوص</button></div></form>`;
+}
+
+function adminVideo(){
+  return `<h3>فيديو «الأفلاج الوقفية»</h3>
+  <p class="note">ارفع ملف الفيديو إلى مستودع جيت هب بجانب ملف الموقع، واكتب اسمه هنا كما هو تمامًا. أو ضع رابط يوتيوب ليُعرض بدلًا من الملف.</p>
+  <form class="form" id="videoForm" style="margin-block-start:1rem">
+    <label class="f full">اسم ملف الفيديو<input name="file" dir="ltr" value="${esc(state.video.file)}"></label>
+    <label class="f full">رابط يوتيوب (اختياري، له الأولوية إن وُجد)<input name="youtube" dir="ltr" value="${esc(state.video.youtube)}"></label>
+    <div class="full"><button class="btn" type="submit">حفظ</button></div>
+  </form>`;
+}
+
+let editQ = -1;
+function adminQuestions(){
+  const q = editQ >= 0 ? state.questions[editQ] : {q:"", o:["","","",""], a:0};
+  return `<h3>${editQ >= 0 ? "تعديل سؤال" : "إضافة سؤال"}</h3>
+  <form class="form" id="qForm">
+    <label class="f full">نص السؤال<input name="q" required value="${esc(q.q)}"></label>
+    ${[0,1,2,3].map(i => `<label class="f">الخيار ${toAr(i + 1)}<input name="o${i}" required value="${esc(q.o[i])}"></label>`).join("")}
+    <label class="f">الإجابة الصحيحة<select name="a">${[0,1,2,3].map(i => `<option value="${i}" ${q.a === i ? "selected" : ""}>الخيار ${toAr(i + 1)}</option>`).join("")}</select></label>
+    <div class="full row"><button class="btn" type="submit">${editQ >= 0 ? "حفظ التعديل" : "إضافة السؤال"}</button>${editQ >= 0 ? `<button class="btn ghost" type="button" id="cancelQ">إلغاء</button>` : ""}
+    <button class="btn ghost" type="button" id="resetQ">استعادة الأسئلة الافتراضية</button></div>
+  </form>
+  <h3 style="margin-block-start:2rem">بنك الأسئلة (${toAr(state.questions.length)})</h3>
+  <p class="note">تختار اللعبة ١٠ أسئلة عشوائية في كل مرة، فاحرص أن يبقى في البنك ١٠ أسئلة على الأقل.</p>
+  <div class="table-wrap"><table><thead><tr><th>م</th><th>السؤال</th><th>الإجابة</th><th>إجراءات</th></tr></thead>
+  <tbody>${state.questions.map((x, i) => `<tr><td>${toAr(i + 1)}</td><td>${esc(x.q)}</td><td>${esc(x.o[x.a])}</td>
+    <td class="row"><button class="btn small" type="button" data-eq="${i}">تعديل</button><button class="btn small danger" type="button" data-dq="${i}">حذف</button></td></tr>`).join("")}</tbody></table></div>`;
+}
+
+const SECTIONS = [["types","أنواع الأفلاج"],["waqf","أوقاف الأفلاج"],["ownership","بيت المال والأهلية"],["directory","دليل الأفلاج"],["video","الفيديو"],["game","اللعبة"]];
+function adminSettings(){
+  return `<h3>إظهار الأقسام</h3>
+  <form id="secForm" class="form">${SECTIONS.map(([k, l]) => `<label class="f row"><input type="checkbox" name="${k}" ${state.settings.hidden[k] ? "" : "checked"}> ${l}</label>`).join("")}
+  <div class="full"><button class="btn" type="submit">حفظ</button></div></form>
+  <h3 style="margin-block-start:2rem">تغيير كلمة المرور</h3>
+  <form id="passForm" class="form">
+    <label class="f">كلمة المرور الجديدة<input type="password" name="p1" minlength="6" required autocomplete="new-password"></label>
+    <label class="f">تأكيدها<input type="password" name="p2" minlength="6" required autocomplete="new-password"></label>
+    <div class="full"><button class="btn" type="submit">تغيير</button></div>
+  </form>
+  <p class="note" style="margin-block-start:1rem">تنبيه: كلمة المرور في موقع من ملف واحد حماية شكلية لمنع العبث العابر، ولا تصلح لحماية بيانات حساسة.</p>
+  <p><button class="btn ghost" type="button" id="logout">تسجيل الخروج</button></p>`;
+}
+
+function adminPublish(){
+  return `<h3>كيف تصل تعديلاتك إلى الزوار؟</h3>
+  <ol>
+    <li>تُحفظ تعديلاتك أولًا في هذا المتصفح فقط.</li>
+    <li>اضغط «تنزيل نسخة محدّثة من الموقع» لتحصل على ملف الموقع وقد دُمجت فيه كل التعديلات.</li>
+    <li>ارفع الملف إلى مستودع جيت هب بدل الملف القديم، وبنفس الاسم.</li>
+  </ol>
+  <div class="row" style="margin-block:1.2rem">
+    <button class="btn clay" type="button" id="dlSite">تنزيل نسخة محدّثة من الموقع</button>
+    <button class="btn" type="button" id="dlJson">تصدير البيانات</button>
+    <label class="btn ghost" style="cursor:pointer">استيراد البيانات<input type="file" id="importJson" accept=".json,application/json" hidden></label>
+  </div>
+  <p class="note">حجم البيانات الحالي تقريبًا: ${toAr(Math.round(JSON.stringify(state).length / 1024))} كيلوبايت. الصور تُصغَّر تلقائيًا، لكن كثرتها تزيد حجم الملف.</p>
+  <h3 style="margin-block-start:2rem">إعادة الضبط</h3>
+  <p>حذف التعديلات غير المنشورة من هذا المتصفح والعودة إلى بيانات الملف المرفوع.</p>
+  <button class="btn danger" type="button" id="resetLocal">إعادة الضبط</button>`;
+}
+
+/* ربط أحداث كل تبويب */
+const bindAdmin = {
+  aflaj(){
+    const form = $("#aflajForm");
+    $("#aflajImg").onchange = async e => {
+      const file = e.target.files[0]; if (!file) return;
+      try { pendingImg = await readImage(file); $("#imgPrev").innerHTML = `<img class="thumb" src="${pendingImg}" alt="">`; } catch(err){ toast("تعذرت قراءة الصورة"); }
+    };
+    const rm = $("#rmImg"); if (rm) rm.onclick = () => { pendingImg = ""; $("#imgPrev").innerHTML = ""; };
+    form.onsubmit = e => {
+      e.preventDefault();
+      const d = Object.fromEntries(new FormData(form));
+      const rec = {name:d.name.trim(), wilaya:d.wilaya, village:d.village.trim(), type:d.type, own:d.own, flow:d.flow, length:d.length.trim(), waqf:d.waqf.trim(), lat:d.lat.trim(), lng:d.lng.trim(), desc:d.desc.trim(), verified:!!d.verified};
+      if (editing){
+        const f = state.aflaj.find(x => x.id === editing);
+        Object.assign(f, rec); if (pendingImg !== null) f.img = pendingImg;
+        save("تم حفظ التعديل");
+      } else {
+        state.aflaj.push({id:uid(), img:pendingImg || "", ...rec});
+        save("تمت إضافة الفلج");
+      }
+      editing = null; pendingImg = null; renderAdmin();
+    };
+    const c = $("#cancelEdit"); if (c) c.onclick = () => { editing = null; pendingImg = null; renderAdmin(); };
+    $$("[data-edit]").forEach(b => b.onclick = () => { editing = b.dataset.edit; pendingImg = null; renderAdmin(); $("#adminBody").scrollTop = 0; });
+    $$("[data-del]").forEach(b => b.onclick = () => {
+      const f = state.aflaj.find(x => x.id === b.dataset.del);
+      if (confirm(`حذف «${f.name}» نهائيًا؟`)){ state.aflaj = state.aflaj.filter(x => x !== f); save("تم الحذف"); renderAdmin(); }
+    });
+  },
+  logo(){
+    $("#logoFile").onchange = async e => {
+      const file = e.target.files[0]; if (!file) return;
+      try { state.logo = await readImage(file, 400, "image/png"); save("تم حفظ الشعار"); renderAdmin(); } catch(err){ toast("تعذرت قراءة الصورة"); }
+    };
+    const rm = $("#rmLogo"); if (rm) rm.onclick = () => { state.logo = ""; save("تم حذف الشعار"); renderAdmin(); };
+  },
+  texts(){
+    $("#textsForm").onsubmit = e => { e.preventDefault(); Object.assign(state.texts, Object.fromEntries(new FormData(e.target))); save("تم حفظ النصوص"); };
+  },
+  video(){
+    $("#videoForm").onsubmit = e => { e.preventDefault(); const d = Object.fromEntries(new FormData(e.target)); state.video = {file:d.file.trim(), youtube:d.youtube.trim()}; save("تم حفظ إعدادات الفيديو"); };
+  },
+  questions(){
+    $("#qForm").onsubmit = e => {
+      e.preventDefault(); const d = Object.fromEntries(new FormData(e.target));
+      const q = {q:d.q.trim(), o:[d.o0, d.o1, d.o2, d.o3].map(s => s.trim()), a:+d.a};
+      if (editQ >= 0) state.questions[editQ] = q; else state.questions.push(q);
+      editQ = -1; save("تم حفظ السؤال"); renderAdmin();
+    };
+    const c = $("#cancelQ"); if (c) c.onclick = () => { editQ = -1; renderAdmin(); };
+    $("#resetQ").onclick = () => { if (confirm("استبدال كل الأسئلة بالأسئلة الافتراضية؟")){ state.questions = DEFAULT_Q.map(q => ({...q, o:[...q.o]})); editQ = -1; save("تمت الاستعادة"); renderAdmin(); } };
+    $$("[data-eq]").forEach(b => b.onclick = () => { editQ = +b.dataset.eq; renderAdmin(); $("#adminBody").scrollTop = 0; });
+    $$("[data-dq]").forEach(b => b.onclick = () => { if (confirm("حذف هذا السؤال؟")){ state.questions.splice(+b.dataset.dq, 1); editQ = -1; save("تم الحذف"); renderAdmin(); } });
+  },
+  settings(){
+    $("#secForm").onsubmit = e => { e.preventDefault(); const d = new FormData(e.target); SECTIONS.forEach(([k]) => state.settings.hidden[k] = !d.get(k)); save("تم حفظ الإعدادات"); };
+    $("#passForm").onsubmit = e => {
+      e.preventDefault(); const d = Object.fromEntries(new FormData(e.target));
+      if (d.p1 !== d.p2){ toast("كلمتا المرور غير متطابقتين"); return; }
+      state.settings.pass = d.p1; save("تم تغيير كلمة المرور"); e.target.reset();
+    };
+    $("#logout").onclick = () => { sessionStorage.removeItem("aflaj-admin"); $("#adminDlg").close(); toast("تم تسجيل الخروج"); };
+  },
+  publish(){
+    $("#dlSite").onclick = downloadSite;
+    $("#dlJson").onclick = () => downloadFile("aflaj-data.json", JSON.stringify(state, null, 2), "application/json");
+    $("#importJson").onchange = e => {
+      const file = e.target.files[0]; if (!file) return;
+      const fr = new FileReader();
+      fr.onload = () => { try { state = normalize(JSON.parse(fr.result)); save("تم استيراد البيانات"); renderAdmin(); } catch(err){ toast("الملف غير صالح"); } };
+      fr.readAsText(file);
+    };
+    $("#resetLocal").onclick = () => { if (confirm("حذف كل التعديلات غير المنشورة من هذا المتصفح؟")){ localStorage.removeItem(KEY); state = normalize(JSON.parse(JSON.stringify(seed))); renderSite(); renderAdmin(); toast("تمت إعادة الضبط"); } };
+  }
+};
+
+function downloadFile(name, content, type){
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([content], {type}));
+  a.download = name; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+}
+
+/* توليد نسخة نظيفة من الموقع مدمجة فيها البيانات الحالية */
+function downloadSite(){
+  state.savedAt = Date.now();
+  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {}
+  const root = document.documentElement.cloneNode(true);
+  root.querySelectorAll("[data-render]").forEach(el => el.innerHTML = "");
+  root.querySelectorAll("dialog").forEach(d => d.removeAttribute("open"));
+  root.querySelectorAll("[data-sec]").forEach(s => s.removeAttribute("hidden"));
+  root.querySelectorAll(".nav a").forEach(a => a.removeAttribute("hidden"));
+  root.querySelectorAll(".flip.on").forEach(f => f.classList.remove("on"));
+  root.querySelectorAll(".show,.open").forEach(el => el.classList.remove("show", "open"));
+  const s = root.querySelector("#seed");
+  s.textContent = "\n" + JSON.stringify(state).replace(/</g, "\\u003c") + "\n";
+  const html = "<!DOCTYPE html>\n" + root.outerHTML;
+  downloadFile("index.html", html, "text/html;charset=utf-8");
+  toast("تم تنزيل النسخة المحدّثة، ارفعها على جيت هب بدل القديمة");
+}
+
+/* =========================================================
+   التشغيل
+   ========================================================= */
+renderSite();
+gameIntro();
+addEventListener("load", renderQR);
+</script>
+</body>
+</html>
